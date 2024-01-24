@@ -54,6 +54,7 @@ class gpsd_coord(plugins.Plugin):
             with open(self.options['filelocation'], 'r') as f:
                 self.old_coords = json.load(f)
             f.close()
+            logging.info("[gpsd] last session gps position loaded")
         if (self.options["gpsdhost"]):
             logging.info(f"enabling bettercap's gps module for {self.options['gpsdhost']}:{self.options['gpsdport']}")
             try:
