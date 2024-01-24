@@ -4,7 +4,6 @@
 # Requires https://github.com/MartijnBraam/gpsd-py3
 import json
 import logging
-
 import pwnagotchi.plugins as plugins
 import pwnagotchi.ui.fonts as fonts
 from pwnagotchi.ui.components import LabeledValue
@@ -80,9 +79,9 @@ class gpsd_coord(plugins.Plugin):
             lon_pos = (132, 84)
             alt_pos = (137, 94)
         if ui.is_waveshare_v3():
-            lat_pos = (127, 75)
-            lon_pos = (122, 84)
-            alt_pos = (127, 94)
+            lat_pos = (137, 75)
+            lon_pos = (132, 84)
+            alt_pos = (137, 94)
         elif ui.is_waveshare_v1():
             lat_pos = (130, 70)
             lon_pos = (125, 80)
