@@ -39,7 +39,7 @@ class gpsd_coord(plugins.Plugin):
     __author__ = "k4n3d4_sht4r0@proton.me"
     __version__ = "1.0.0"
     __license__ = "GPL3"
-    __description__ = "Save gpsd coordinates to an external file"
+    __description__ = "Save gpsd coordinates to an external file to guarantee gps coordinate a soon as boot up when a handshake is captured"
 
     def __init__(self):
         self.gpsd = None
