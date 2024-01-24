@@ -27,7 +27,7 @@ To do that I invite you to go to the Kellertk gpsd plugin page and see the his r
 
 https://github.com/kellertk/pwnagotchi-plugin-gpsd
 
-# Installation
+# Setup
 Put the gpsd.py file into your installed plugins directory and add this to your <code>config.toml</code> file. The filelocation line is the location where the gps coordinate will be saved on the V2 version so if you install the V1 it's not necessary to add it !
 
 <pre>
