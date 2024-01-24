@@ -1,4 +1,4 @@
-# Pwnagotchi_bettergpsd_plugin
+# Pwnagotchi_gpsd-upgraded_plugin
 
 THIS IS A MODIFIED VERSION OF THE KELLERTK GPSD PLUGIN GO CHECK HIS HIS WORK
 
