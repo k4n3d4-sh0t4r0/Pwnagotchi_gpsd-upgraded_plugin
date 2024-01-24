@@ -19,6 +19,14 @@ The V2 goes a bit further and becareful because it may not be suitable for all u
 
 !!!!! This can introduce false gps data if it is started at a location other than where it was switched off !!!!! 
 
+# Requirements
+
+You'll need a configured <code>gpsd</code>, and also <code>gpsd-py3</code>.
+
+To do that I invite you to go to the Kellertk gpsd plugin page and see the his requirements section.
+
+https://github.com/kellertk/pwnagotchi-plugin-gpsd
+
 # Installation
 Put the gpsd.py file into your installed plugins directory and add this to your <code>config.toml</code> file. The filelocation line is the location where the gps coordinate will be saved on the V2 version so if you install the V1 it's not necessary to add it !
 
