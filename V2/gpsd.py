@@ -4,7 +4,7 @@
 # Requires https://github.com/MartijnBraam/gpsd-py3
 import json
 import logging
-
+import os
 import pwnagotchi.plugins as plugins
 import pwnagotchi.ui.fonts as fonts
 from pwnagotchi.ui.components import LabeledValue
@@ -39,7 +39,7 @@ class gpsd_coord(plugins.Plugin):
     __author__ = "k4n3d4_sht4r0@proton.me"
     __version__ = "1.0.0"
     __license__ = "GPL3"
-    __description__ = "Save gpsd coordinates to an external file to guarantee gps coordinate a soon as boot up when a handshake is captured"
+    __description__ = "Save gpsd coordinates to an external file"
 
     def __init__(self):
         self.gpsd = None
@@ -50,9 +50,10 @@ class gpsd_coord(plugins.Plugin):
         logging.info("[gpsd] plugin loaded")
 
     def on_ready(self, agent):
-        with open(self.option['filelocation'], 'r') as f:
-            self.old_coords = json.load(f)
-        f.close()
+        if os.path.isfile(self.options['filelocation']) :
+            with open(self.options['filelocation'], 'r') as f:
+                self.old_coords = json.load(f)
+            f.close()
         if (self.options["gpsdhost"]):
             logging.info(f"enabling bettercap's gps module for {self.options['gpsdhost']}:{self.options['gpsdport']}")
             try:
@@ -82,10 +83,10 @@ class gpsd_coord(plugins.Plugin):
             lat_pos = (137, 75)
             lon_pos = (132, 84)
             alt_pos = (137, 94)
-        if ui.is_waveshare_v3():
-            lat_pos = (127, 75)
-            lon_pos = (122, 84)
-            alt_pos = (127, 94)
+        elif ui.is_waveshare_v3():
+            lat_pos = (137, 75)
+            lon_pos = (132, 84)
+            alt_pos = (137, 94)
         elif ui.is_waveshare_v1():
             lat_pos = (130, 70)
             lon_pos = (125, 80)
@@ -164,7 +165,7 @@ class gpsd_coord(plugins.Plugin):
             coords["Latitude"], coords["Longitude"]
         ]):
             self.old_coords = coords
-            with open(self.option['filelocation'], 'w') as f:
+            with open(self.options['filelocation'], 'w') as f:
                 json.dump(self.old_coords, f)
             f.close()
         if self.old_coords :
